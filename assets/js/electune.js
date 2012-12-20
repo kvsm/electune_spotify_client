@@ -4,19 +4,15 @@ var player = models.player;
 
 exports.init = init;
 
-var callback = function (e) {
-  console.log(e);
-  console.log(player.playing);
-  if (!player.playing && e.data.curtrack == true) {
-    var track = getCurrentTrack()
-    player.play(track, track);
-  }
-}
-
 function init() {
   var track = getCurrentTrack()
   player.play(track, track);
-  player.observe(models.EVENT.CHANGE, callback);
+  player.observe(models.EVENT.CHANGE, function (e) {
+    if (!player.playing && e.data.curtrack == true) {
+      var track = getCurrentTrack()
+      player.play(track, track);
+    }
+  });
 }
 
 function getCurrentTrack() {
