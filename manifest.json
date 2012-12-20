@@ -1,0 +1,14 @@
+{
+	"BundleType": "Application",
+	"BundleIdentifier": "electune",
+	"AppIcon": {
+		"36x18": "assets/img/icon36x18.png"
+	},
+	"AppName": {
+		"en": "Electune"
+	},
+	"SupportedLanguages": [
+		"en"
+	],
+  "RequiredPermissions": [ "http://electune.dyndns.org" ]
+}
