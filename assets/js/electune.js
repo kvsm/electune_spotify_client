@@ -4,9 +4,13 @@ var player = models.player;
 
 exports.init = init;
 
-function init() {
+function init() {  
   var track = getCurrentTrack()
-  player.play(track, track);
+  
+  var tempList = new models.Playlist();
+  tempList.add(track);
+  player.play(track, tempList.uri);
+  
   player.observe(models.EVENT.CHANGE, function (e) {
     if (!player.playing && e.data.curtrack == true) {
       var track = getCurrentTrack()
