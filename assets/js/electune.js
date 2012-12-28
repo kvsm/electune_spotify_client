@@ -13,8 +13,8 @@ function init() {
   
   player.observe(models.EVENT.CHANGE, function (e) {
     if (!player.playing && e.data.curtrack == true) {
-      var track = getCurrentTrack()
-      player.play(track, track);
+      var track = getCurrentTrack();
+      player.play(track, tempList.uri);
     }
   });
 }
