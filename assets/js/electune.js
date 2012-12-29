@@ -5,20 +5,17 @@ var player = models.player;
 exports.init = init;
 
 function init() {  
-  var track = getCurrentTrack()
-  
-  var tempList = new models.Playlist();
-  tempList.add(track);
-  player.play(track, tempList.uri);
-  
+  playCurrentTrack();
   player.observe(models.EVENT.CHANGE, function (e) {
     if (!player.playing && e.data.curtrack == true) {
-      var track = getCurrentTrack();
-      var tempList = new models.Playlist();
-      tempList.add(track);
-      player.play(track, tempList.uri);
+      playCurrentTrack();
     }
   });
+}
+
+function playCurrentTrack() {
+  var track = getCurrentTrack()
+  playTrack(track);
 }
 
 function getCurrentTrack() {
@@ -29,4 +26,10 @@ function getCurrentTrack() {
   json = JSON.parse(xmlhttp.responseText);
   $("#response").html(xmlhttp.responseText);
   return json.song_link + "#" + json.current_time;
+}
+
+function playTrack(track) {
+  var tempList = new models.Playlist();
+  tempList.add(track);
+  player.play(track, tempList.uri);
 }
