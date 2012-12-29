@@ -26,20 +26,17 @@ function playCurrentTrack() {
 
 function updateTrackDetails(track) {
   if (track != null) {
-    var trackStr = track.name + " - " + track.artists[0].name;
+    $("#track").html(track.name + " - " + track.artists[0].name);
     $("#track-image-container")
         .empty()
         .append(
             $('<img>').attr('src', track.image)
         );
   } else {
-    var trackStr = "&lt;no track&gt;";
+    $("#track").html("&lt;no track&gt;");
     $("#track-image-container")
         .empty();
-  }
-  $("#track").html(trackStr);
-    
-  
+  }  
 }
 
 function getCurrentTrack() {
