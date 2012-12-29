@@ -14,6 +14,8 @@ function init() {
   player.observe(models.EVENT.CHANGE, function (e) {
     if (!player.playing && e.data.curtrack == true) {
       var track = getCurrentTrack();
+      var tempList = new models.Playlist();
+      tempList.add(track);
       player.play(track, tempList.uri);
     }
   });
@@ -25,7 +27,6 @@ function getCurrentTrack() {
   xmlhttp.open("GET", url, false);
   xmlhttp.send();
   json = JSON.parse(xmlhttp.responseText);
-  var responseDiv = document.getElementById("response");
-  responseDiv.innerHTML = xmlhttp.responseText;
+  $("#response").html(xmlhttp.responseText);
   return json.song_link + "#" + json.current_time;
 }
