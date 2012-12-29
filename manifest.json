@@ -10,5 +10,7 @@
 	"SupportedLanguages": [
 		"en"
 	],
-  "RequiredPermissions": [ "http://electune.dyndns.org" ]
+  "RequiredPermissions": [
+    "http://electune.dyndns.org"
+  ]
 }

@@ -8,8 +8,14 @@
   </head>
   <body onload="sp = getSpotifyApi(1); electune = sp.require('assets/js/electune');">
     <h1 id="title">Electune</h1>
-    <div id="response"></div>
-    <button class="sp-button sp-primary" onclick="electune.init();">Tune In</button>
+    <div id="playlist-details" class="details">
+      Listening to: <span id="playlist">&lt;no playlist&gt;</span>
+    </div>
+    <div id="track-details" class="details">
+      Now playing: <span id="track">&lt;no track&gt;</span>
+    </div>
+    <div id="track-image-container"></div>
+    <button id="tune-in" class="sp-button sp-primary" onclick="electune.init();">Tune In</button>
     <script src="sp://electune/assets/js/jquery-1.8.3.min.js"></script>
   </body>
 </html>

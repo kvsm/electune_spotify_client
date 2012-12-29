@@ -14,18 +14,41 @@ function init() {
 }
 
 function playCurrentTrack() {
-  var track = getCurrentTrack()
-  playTrack(track);
+  var trackJSON = getCurrentTrack();
+  $("#playlist").html(trackJSON.playlist + " playlist");
+  if (trackJSON.song_link != "") {
+    playTrack(trackJSON.song_link + "#" + trackJSON.current_time);
+    models.Track.fromURI(trackJSON.song_link, updateTrackDetails);
+  } else {
+    updateTrackDetails(null);
+  }
+}
+
+function updateTrackDetails(track) {
+  if (track != null) {
+    var trackStr = track.name + " - " + track.artists[0].name;
+    $("#track-image-container")
+        .empty()
+        .append(
+            $('<img>').attr('src', track.image)
+        );
+  } else {
+    var trackStr = "&lt;no track&gt;";
+    $("#track-image-container")
+        .empty();
+  }
+  $("#track").html(trackStr);
+    
+  
 }
 
 function getCurrentTrack() {
-  url = "http://electune.dyndns.org/playlists/1/current.json";
-  xmlhttp = new XMLHttpRequest();
+  var url = "http://electune.dyndns.org/playlists/1/current";
+  var xmlhttp = new XMLHttpRequest();
   xmlhttp.open("GET", url, false);
   xmlhttp.send();
-  json = JSON.parse(xmlhttp.responseText);
-  $("#response").html(xmlhttp.responseText);
-  return json.song_link + "#" + json.current_time;
+  var json = JSON.parse(xmlhttp.responseText);
+  return json;
 }
 
 function playTrack(track) {

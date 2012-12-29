@@ -1,6 +1,16 @@
 
+body {
+  font-family: "Courier 10 Pitch", "Courier New", Courier, monospace;
+}
+
 h1#title {
   text-align: center;
   font: 50px/50px  "Courier 10 Pitch", "Courier New", Courier, monospace;
   font-weight: bold;
+  margin-top: 50px;
+}
+
+button#tune-in {
+  font-size:4em;
+  line-height: normal;
 }
