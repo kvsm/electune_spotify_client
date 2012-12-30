@@ -4,13 +4,44 @@ body {
 }
 
 h1#title {
-  text-align: center;
-  font: 50px/50px  "Courier 10 Pitch", "Courier New", Courier, monospace;
-  font-weight: bold;
-  margin-top: 50px;
+     text-align: center;
+           font: 50px/50px "Courier 10 Pitch", "Courier New", Courier, monospace;
+    font-weight: bold;
+     margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+#wrapper {
+         width: 800px;
+   margin-left: auto;
+  margin-right: auto;
+}
+
+#track-image-container {
+  height: 300px;
+  width: 300px;
+  float: left;
+}
+
+#details-container {
+  height: 300px;
+  width: 500px;
+  float: left;
+  font-size: 1.3em;
+}
+
+#details-container div {
+  padding-left: 7px;
+  color: #BBB;
 }
 
 button#tune-in {
-  font-size:4em;
+  margin-top: 30px;
+    font-size: 4em;
   line-height: normal;
+  clear: both;
+}
+
+.center-content {
+  text-align: center;
 }

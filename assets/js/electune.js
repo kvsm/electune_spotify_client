@@ -30,7 +30,8 @@ function updateTrackDetails(track) {
     $("#track-image-container")
         .empty()
         .append(
-            $('<img>').attr('src', track.image)
+            $('<img>')
+              .attr('src', track.image)
         );
   } else {
     $("#track").html("&lt;no track&gt;");
